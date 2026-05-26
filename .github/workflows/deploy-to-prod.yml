@@ -36,17 +36,12 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
 
-      # - name: Deploy to Azure
-      #   uses: azure/webapps-deploy@v3
-      #   with:
-      #     app-name: 'MyDotNet9LinuxApp'
-      #     slot-name: 'production'
-      #     package: './build-output'
-
-
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v2
+      - name: Deploy to Azure
+        uses: azure/webapps-deploy@v3
         with:
-          app-name: 'MyDotNet9LinuxApp' # Replace with your Azure Web App name
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }} # Add your publish profile as a secret in GitHub
+          app-name: 'MyDotNet9LinuxApp'
+          slot-name: 'production'
           package: './publish'
+
+
+      
