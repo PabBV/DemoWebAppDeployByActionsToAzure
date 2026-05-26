@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jbuendia\\Downloads\\webAppDemo\\WebApplicationDeployByActionsToWebApp\\DemoWebAppDeployByActionsToAzure\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{16E27C85-CA1A-3217-C428-459325BBBE7A}|WebApplicationDeployByActionsToWebApp\\WebApplicationDeployByActionsToWebApp.csproj|c:\\users\\jbuendia\\downloads\\webappdemo\\webapplicationdeploybyactionstowebapp\\demowebappdeploybyactionstoazure\\webapplicationdeploybyactionstowebapp\\.github\\workflows\\deploy-azure-oidc.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}",
+      "RelativeMoniker": "D:0:0:{16E27C85-CA1A-3217-C428-459325BBBE7A}|WebApplicationDeployByActionsToWebApp\\WebApplicationDeployByActionsToWebApp.csproj|solutionrelative:webapplicationdeploybyactionstowebapp\\.github\\workflows\\deploy-azure-oidc.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "deploy-azure-oidc.yml",
+              "DocumentMoniker": "C:\\Users\\jbuendia\\Downloads\\webAppDemo\\WebApplicationDeployByActionsToWebApp\\DemoWebAppDeployByActionsToAzure\\WebApplicationDeployByActionsToWebApp\\.github\\workflows\\deploy-azure-oidc.yml",
+              "RelativeDocumentMoniker": "WebApplicationDeployByActionsToWebApp\\.github\\workflows\\deploy-azure-oidc.yml",
+              "ToolTip": "C:\\Users\\jbuendia\\Downloads\\webAppDemo\\WebApplicationDeployByActionsToWebApp\\DemoWebAppDeployByActionsToAzure\\WebApplicationDeployByActionsToWebApp\\.github\\workflows\\deploy-azure-oidc.yml",
+              "RelativeToolTip": "WebApplicationDeployByActionsToWebApp\\.github\\workflows\\deploy-azure-oidc.yml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2026-05-26T23:18:04.447Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
