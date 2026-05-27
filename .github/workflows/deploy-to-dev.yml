@@ -1,9 +1,9 @@
-name: Deploy to Linux App Service - WebAppRazor
+name: Deploy to DEV Linux App Service - WebAppRazor
 
 on:
   push:
     branches:
-      - main
+      - dev
 
   workflow_dispatch:
 
@@ -43,7 +43,8 @@ jobs:
 
   deploy-web-app:
     environment:
-        name: prod
+      name: dev
+        
     needs: build-web-app
     runs-on: ubuntu-latest
 
@@ -68,3 +69,6 @@ jobs:
         with:
           app-name: 'MyDotNet9LinuxApp'
           package: ./publish
+
+      - run: |
+            echo "🎉 This is a secret for develop environment only: ${{ secrets.ENVIRONMENT }}"
