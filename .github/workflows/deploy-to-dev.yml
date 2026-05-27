@@ -42,8 +42,8 @@ jobs:
           path: ./publish
 
   deploy-web-app:
-    environment:
-        name: dev
+    #environment:
+    #    name: dev
         
     needs: build-web-app
     runs-on: ubuntu-latest
