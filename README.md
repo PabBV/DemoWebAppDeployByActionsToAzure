@@ -10,13 +10,16 @@ Se despliega mediante un Action en GitHUb, el cual usa Microsoft Entra ID para a
 Así funciona el flujo(son dos pasos, build-web-app debe ser correcto para que continue con lo siguiente):
 
 build-web-app
-  compila
-  publica
-  guarda /publish como artifact
+  -compila
+  -publica
+  -guarda /publish como artifact
+  
 deploy-web-app
-  espera a que termine build (needs)
-  descarga el artifact
-  despliega a Azure
+  -espera a que termine build (needs)
+  -descarga el artifact
+  -despliega a Azure
+
+  
 
 Pasos para tener acceso al servicio en azure y configuraciones:
 https://macelabs.com/deploying-to-azure-using-github-actions/?utm_source=youtube&utm_medium=video&utm_campaign=azure-github-actions-deploy&utm_content=description
