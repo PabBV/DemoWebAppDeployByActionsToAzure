@@ -1,5 +1,5 @@
 
-# Despliegue de proyecto .NET9 WebApplication Razor Pages a WebApp en azure, con configuración de web app como "code", sin usar dockerFile, desplegando según el ambiente, usandi Federated credentials por ambiente, usando artifact de git hub
+# Despliegue de proyecto .NET9 WebApplication Razor Pages a WebApp en azure, con configuración de web app como "code", sin usar dockerFile, desplegando según el ambiente, usando Federated credentials por ambiente, usando artifact de git hub y secretos por ambiente
 
 
 
