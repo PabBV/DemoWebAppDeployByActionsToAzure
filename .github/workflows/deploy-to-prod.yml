@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  build-and-deploy:
+  build-web-app:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,13 +21,19 @@ jobs:
         with:
           dotnet-version: '9.x'
 
-
       - name: Build the application
         run: dotnet build --configuration Release
-
+        
+      
+    
+        
+  deploy-web-app:
+    needs: build-web-app
+    runs-on: ubuntu-latest
+    steps:
       - name: Publish the application
         run: dotnet publish --configuration Release --output ./publish
-
+        
       - name: Azure Login
         uses: azure/login@v2
         with:
