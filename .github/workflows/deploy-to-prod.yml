@@ -1,39 +1,59 @@
-﻿name: Deploy to Linux
+name: Deploy to Linux App Service - WebAppRazor
+
 on:
   push:
     branches:
       - main
+
   workflow_dispatch:
-  
+
 permissions:
   id-token: write
   contents: read
 
 jobs:
+
   build-web-app:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up .NET
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.x'
 
-      - name: Build the application
-        run: dotnet build --configuration Release
-        
-      
-    
-        
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Publish
+        run: dotnet publish --configuration Release --output ./publish
+
+      # Subir artifact
+      - name: Upload publish files
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-app
+          path: ./publish
+
   deploy-web-app:
     needs: build-web-app
     runs-on: ubuntu-latest
+
     steps:
-      - name: Publish the application
-        run: dotnet publish --configuration Release --output ./publish
-        
+
+      # Descargar artifact
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dotnet-app
+          path: ./publish
+
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -41,13 +61,8 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-
-      - name: Deploy to Azure
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'MyDotNet9LinuxApp'
-          slot-name: 'production'
-          package: './publish'
-
-
-      
+          package: ./publish
