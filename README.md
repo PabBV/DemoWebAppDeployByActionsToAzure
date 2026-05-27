@@ -1,7 +1,7 @@
 
-
-
--- Despliegue de proyecto .NET9 WebApplication Razor Pages a WebApp en azure, con configuración de web app como "code", usando artifact de git hub
+<head>
+    Despliegue de proyecto .NET9 WebApplication Razor Pages a WebApp en azure, con configuración de web app como "code", sin usar dockerFile, desplegando según el ambiente, usandi Federated credentials por ambiente, usando artifact de git hub
+</head>
 
 
 
@@ -87,7 +87,7 @@ https://youtu.be/xUsmCRBsyZM
     Supported account types: Typically “Accounts in this organizational directory only”.
     Redirect URI: leave blank (not needed for GitHub Actions).
     Click Register.
-  2.2 Add a Federated Credential for GitHub
+  2.2 Add a Federated Credential for GitHub (SE AGREGA UNO POR AMBIENTE dev/prod)
     A Federated Credential is an identity link that allows GitHub Actions (from a specific repo/branch) to authenticate against Microsoft Entra ID without a static secret. It relies on short-lived OpenID Connect tokens, enhancing security by avoiding permanent credentials.
     
     In your newly created App Registration, go to Certificates & secrets.
