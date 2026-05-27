@@ -1,0 +1,74 @@
+name: Deploy to Linux App Service - WebAppRazor
+
+on:
+  push:
+    branches:
+      - dev
+
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+
+  build-web-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Publish
+        run: dotnet publish --configuration Release --output ./publish
+
+      # Subir artifact
+      - name: Upload publish files
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-app
+          path: ./publish
+
+  deploy-web-app:
+    environment:
+        name: dev
+        
+    needs: build-web-app
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Descargar artifact
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dotnet-app
+          path: ./publish
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'MyDotNet9LinuxApp'
+          package: ./publish
+
+      - run: |
+            echo "🎉 This is a secret for develop environment only: ${{ secrets.ENVIRONMENT }}"
