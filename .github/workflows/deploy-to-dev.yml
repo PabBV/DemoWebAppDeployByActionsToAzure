@@ -1,5 +1,4 @@
 name: Deploy to DEV Linux App Service - WebAppRazor
-
 on:
   push:
     branches:
